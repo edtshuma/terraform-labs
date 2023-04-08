@@ -1,6 +1,5 @@
 # api-layer-sre-dashboards <!-- omit in toc -->
 
-![logo](https://raw.githubusercontent.com/dotdc/media/main/grafana-dashboards-kubernetes/kubernetes-grafana-dashboards-logo.png)
 
 ## Table of contents <!-- omit in toc -->
 
