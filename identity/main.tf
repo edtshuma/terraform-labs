@@ -67,3 +67,8 @@ data "aws_iam_policy_document" "developers_policy" {
     ]
   }
 }
+
+resource "aws_iam_policy" "developers_s3_ec2_policy" {
+  name   = "developers_s3_ec2_policy"
+  policy = data.aws_iam_policy_document.developers_policy.json
+}

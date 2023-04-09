@@ -1,0 +1,57 @@
+module.identity.data.aws_iam_policy_document.developers_policy: Reading...
+module.identity.aws_iam_group.developers: Refreshing state... [id=developers]
+module.identity.aws_iam_policy.developers_lambda_policy: Refreshing state... [id=arn:aws:iam::539520548734:policy/developers-lambda-policy]
+module.identity.data.aws_iam_policy_document.developers_policy: Read complete after 0s [id=2813852899]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.identity.aws_iam_policy.developers_s3_ec2_policy will be created
+  + resource "aws_iam_policy" "developers_s3_ec2_policy" {
+      + arn         = (known after apply)
+      + id          = (known after apply)
+      + name        = "developers_s3_ec2_policy"
+      + name_prefix = (known after apply)
+      + path        = "/"
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "s3:PutObject",
+                          + "s3:ListBucket",
+                          + "s3:GetObject",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = [
+                          + "arn:aws:s3:::react-golide/*",
+                          + "arn:aws:s3:::react-golide",
+                        ]
+                      + Sid      = "AllowLimitedS3Access"
+                    },
+                  + {
+                      + Action   = "ec2:DescribeInstances"
+                      + Effect   = "Allow"
+                      + Resource = "arn:aws:ec2:*:*:instance/*"
+                      + Sid      = "AllowLimitedEC2Access"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + policy_id   = (known after apply)
+      + tags_all    = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + iam_developers_group_s3_ec2_policy_arn = (known after apply)
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
